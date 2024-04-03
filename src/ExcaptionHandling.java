@@ -1,13 +1,23 @@
+import java.awt.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class ExcaptionHandling {
     public static void main(String[] args) {
-
-        try {
-            // kode yang mungkin akan meempar exception
-            Integer num = Integer.parseInt("cat");
-//            System.out.println(num);
-        }catch (NumberFormatException nfe){
-            // kode yang ingin kita eksekusi jka exceptionnya muncul
-            System.out.println(nfe.getMessage() + " is not a valid number");
+boolean flag = true;
+        while (flag) {
+            try {
+                // kode yang mungkin akan meempar exception
+                Scanner scanner = new Scanner(System.in);
+                String  input = scanner.nextLine();
+                Integer num = Integer.parseInt(input);
+                System.out.println(num);
+                flag = false;
+            } catch (NumberFormatException e){
+                // kode yang ingin kita eksekusi jka exceptionnya muncul
+                System.out.println(e.getMessage() + " is not a valid number");
+            }
         }
+        System.out.println("Finish");
     }
 }
